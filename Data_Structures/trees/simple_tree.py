@@ -48,7 +48,6 @@ class Tree:
     """
     def __init__(self):
        self.root=None
-       self.height=0
        self.nodes=[]
 
     def insert(self,node,parent=None):   # Insert a node into tree
@@ -80,8 +79,13 @@ class Tree:
     def depth(self,p: TreeNode):
         return p.depth()
 
-    def height(self):
-        return 100
+    # returns height of sub-tree rooted at p
+    def height(self,p: TreeNode):
+        if p.is_leaf():
+            return 0
+        else:
+            return 1 + max(self.height(c) for c in p.children)
+        
 
 #----------------------------------------------------------------------
 # Binary TreeNode Implementation
@@ -91,12 +95,15 @@ class BinaryTreeNode(Tree):
 #----------------------------------------------------------------------
 
 tree = Tree()
-node1 = TreeNode('root')
+rootnode = TreeNode('root')
 node2 = TreeNode('N1')
 node3 = TreeNode('N2')
-tree.insert(node1)
-tree.insert(node2,parent=node1)
+node4 = TreeNode('N3')
+tree.insert(rootnode)
+tree.insert(node2,parent=rootnode)
 tree.insert(node3,parent=node2)
+tree.insert(node4,parent=node2)
 
 tree.root.disp()
-print("Depth",tree.depth(node2))
+print("Depth of ",node3,tree.depth(node3))
+print("Tree height:",tree.height(rootnode))
