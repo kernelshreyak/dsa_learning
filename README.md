@@ -4,4 +4,4 @@ This repo contains code as part of my learning process for various DSA topics. I
 by type.
 
 <br>
-This repo also contains Competitive Programming exercise solutions from Hackerrank, Codechef etc. which have been attempted (successfully) by me
+This repo also contains Competitive Programming exercise solutions from GeeksForGeeks, Hackerrank, Codechef etc. which have been attempted (successfully) by me
